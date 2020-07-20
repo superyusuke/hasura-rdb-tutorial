@@ -1,8 +1,8 @@
+# 立ち上げる
 # docker-compose up --build
-# docker-compose down
 
-# db も削除してダウン
-# docker-compose down --volumes
+# container を落とすことにより、DB, Metadata を消去する
+# docker-compose down
 
 version: "3.6"
 services:
