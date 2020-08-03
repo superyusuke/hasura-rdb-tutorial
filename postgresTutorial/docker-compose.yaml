@@ -1,24 +1,24 @@
 # 立ち上げる
 # docker-compose up --build
 
-# container を落とすことにより、DB, Metadata を消去する
+# container を落とすと Metadata は消去される
 # docker-compose down
 
 version: "3.6"
 services:
-  postgres:
+  postgres: # 必須
     ports:
       - 5432:5432
-    volumes:
-      - ./postgres-data:/var/lib/postgresql/data
+#    volumes:
+#      - ./postgres-data:/var/lib/postgresql/data
     image: postgres:12
     restart: always
     environment:
       POSTGRES_PASSWORD: postgrespassword
-  graphql-engine:
+  graphql-engine: # postgres を立ち上げるだけなら、なくてもいい
     image: hasura/graphql-engine:latest
     ports:
-      - "8081:8080"
+      - "8080:8080"
     depends_on:
       - "postgres"
     restart: always
