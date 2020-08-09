@@ -13,7 +13,11 @@ hasura seeds apply
 ## session variables の設定
 
 x-hasura-role=user
-x-hasura-user-id=1から3
+x-hasura-user-id= 1 || 2 || 3
+
+- user 1 の場合は、全 tweet 見える
+- user 2 の場合も、全 tweet 見える
+- user 3 は一部見えない。具体的には user1 が is_public = false の tweet を持っており、それが見えない。
 
 ## query
 
