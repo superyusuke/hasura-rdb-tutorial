@@ -1,39 +1,35 @@
-// type Articles = Article[];
-//
-// const articles: Articles = [
-//   {
-//     id: 1,
-//     name: "this is react article",
-//     category: "react",
-//   },
-//   {
-//     id: 2,
-//     name: "this is rdb article",
-//     category: "rdb",
-//   },
-// ];
-//
-// type Article = {
-//   id: number;
-//   name: string;
-//   category: string;
-// };
-//
-// const insertIntoArticles = (...x: (keyof Article)[]) => {
-//   const kaeshitaiFunction = (...args: [Article[x[0]] ,Article[x[1]], Article[x[2]]) => {}
-//
-//   return kaeshitaiFunction
-// }
-//
-// const kaettekitaFunction = insertIntoArticles('id', "name", "category")
-//
-// kaettekitaFunction([
-//     1, // id の方である number しかうけない
-//   'name のtypeである string しかうけない',
-//   "category のtypeである string しかうけない"
-// ])
-// // っていれた
-//
-//
-//
-// // type MakeBlar<T, K extends keyof T> = T[K];
+type User = {
+  id: number;
+  name: string;
+};
+
+type Article = {
+  id: number;
+  userId: number;
+  title: string;
+};
+
+type Users = {
+  id: number;
+  name: string;
+  articles: Article[];
+}[];
+
+const users: Users = [
+  {
+    id: 0,
+    name: "nakanishi",
+    articles: [
+      {
+        id: 0,
+        title: "react",
+        userId: 0,
+      },
+      {
+        id: 1,
+        title: "css",
+        userId: 0,
+      },
+    ],
+  },
+];
