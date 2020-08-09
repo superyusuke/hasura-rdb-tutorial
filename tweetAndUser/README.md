@@ -1,3 +1,9 @@
+## ER 図
+
+https://drive.google.com/file/d/1h3skj6EwPActTEtexfN-VHVX4ySSkrc6/view?usp=sharing
+
+
+## 開発開始
 開発ディレクトリ top で docker-compose up
 
 hasura migrate apply
