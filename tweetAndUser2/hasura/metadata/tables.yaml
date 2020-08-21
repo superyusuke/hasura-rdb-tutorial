@@ -22,6 +22,30 @@
             _eq: X-Hasura-User-Id
 - table:
     schema: public
+    name: group_member
+  object_relationships:
+  - name: user
+    using:
+      foreign_key_constraint_on: user_id
+  - name: user_group
+    using:
+      foreign_key_constraint_on: gourp_id
+  select_permissions:
+  - role: user
+    permission:
+      columns:
+      - gourp_id
+      - user_id
+      filter:
+        _or:
+        - user_id:
+            _eq: X-Hasura-User-Id
+        - user_group:
+            group_members:
+              user_id:
+                _eq: X-Hasura-User-Id
+- table:
+    schema: public
     name: tweet
   object_relationships:
   - name: user
@@ -45,6 +69,10 @@
                 _eq: X-Hasura-User-Id
         - user_id:
             _eq: X-Hasura-User-Id
+        - user:
+            group_members:
+              user_id:
+                _eq: X-Hasura-User-Id
 - table:
     schema: public
     name: user
@@ -63,6 +91,13 @@
         table:
           schema: public
           name: allow_to_see
+  - name: group_members
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          schema: public
+          name: group_member
   - name: tweets
     using:
       foreign_key_constraint_on:
@@ -70,6 +105,24 @@
         table:
           schema: public
           name: tweet
+  select_permissions:
+  - role: user
+    permission:
+      columns:
+      - id
+      - name
+      filter: {}
+- table:
+    schema: public
+    name: user_group
+  array_relationships:
+  - name: group_members
+    using:
+      foreign_key_constraint_on:
+        column: gourp_id
+        table:
+          schema: public
+          name: group_member
   select_permissions:
   - role: user
     permission:
