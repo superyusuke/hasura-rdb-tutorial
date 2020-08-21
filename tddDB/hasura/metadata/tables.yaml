@@ -1,0 +1,18 @@
+- table:
+    schema: public
+    name: article
+  array_relationships:
+  - name: categories
+    using:
+      foreign_key_constraint_on:
+        column: artcile_id
+        table:
+          schema: public
+          name: category
+- table:
+    schema: public
+    name: category
+  object_relationships:
+  - name: article
+    using:
+      foreign_key_constraint_on: artcile_id

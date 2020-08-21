@@ -1,0 +1,24 @@
+{
+  "name": "testFunc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@graphql-codegen/cli": "^1.17.8",
+    "@graphql-codegen/introspection": "^1.17.8",
+    "@graphql-codegen/typescript": "^1.17.8",
+    "@graphql-codegen/typescript-graphql-request": "^2.0.0",
+    "@graphql-codegen/typescript-operations": "^1.17.8",
+    "@types/jest": "^26.0.10",
+    "dotenv": "^8.2.0",
+    "graphql": "^15.3.0",
+    "graphql-request": "^3.0.0",
+    "jest": "^26.4.1",
+    "ts-jest": "^26.2.0",
+    "typescript": "3.9.7"
+  },
+  "scripts": {
+    "codegen:watch": "graphql-codegen --config codegen.js --watch",
+    "jest": "ts-jest"
+  }
+}
